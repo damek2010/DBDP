@@ -1,0 +1,30 @@
+Aplikacja DBDP
+PROJEKTY:
+1. Tworzenie nowego projektu
+2. Edycja aktualnego projektu
+3. Lista projektów
+4. Usuwanie projektów
+5. Historia projektu
+
+ZADANIA:
+1. Stany zadań
+2. Dodawanie własnych stanów zadań i zależności
+3. Automatyczność sygierowania zadań dla użytkowników
+4. Dodawanie zadań
+5. Edycja zadań
+6. Lista zadań
+
+UŻYTKOWNICY:
+1. Tworzenie nowego użytkownika
+2. Edycja użytkownika
+3. Lista użytkowników
+4. Usuwanie użytkownika
+
+SPRINTY:
+1. Lista sprintów
+2. Tworzenie nowego sprintu
+3. Sprawozdania z przebiegu
+4. Mikrokupka
+
+
+KOMENTARZE
