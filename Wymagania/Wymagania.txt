@@ -11,12 +11,12 @@ Wymagania dr Fulmańskiego
 10. Możliwość podejrzenia sprtintów z sprawozdaniami
 11. Elementy mikrokupki wymagań do danego sprinta
 12. Czas wykonania zadania w godzinach
-15. Możliwość dodawania komentarzy
-16. Dokumentacja listy stanów w danym wybranym czasie (historia)
-17. Stany zadań oczekujący wykonywany i zakończony
-18. Automatyczne guziki do zmiany stanów
-19. Automatyczne przypisywanie pewnych zadań (sugerowanie) dla odpowiednich osób
-20. Zadania oczekujące na wykonanie mogą być automatycznie przypisane do wolnych użytkowników
-21. Możliwość tworzenia własnych stanów
-22. Automatyczność przechodzenia stanów
-23. Przekierowania stanów
+13. Możliwość dodawania komentarzy
+14. Dokumentacja listy stanów w danym wybranym czasie (historia)
+15. Stany zadań oczekujący wykonywany i zakończony
+16. Automatyczne guziki do zmiany stanów
+17. Automatyczne przypisywanie pewnych zadań (sugerowanie) dla odpowiednich osób
+18. Zadania oczekujące na wykonanie mogą być automatycznie przypisane do wolnych użytkowników
+19. Możliwość tworzenia własnych stanów
+20. Automatyczność przechodzenia stanów
+21. Przekierowania stanów
