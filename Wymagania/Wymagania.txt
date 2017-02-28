@@ -1,0 +1,22 @@
+Wymagania dr Fulmańskiego
+1. Śledzenie postępu prac w modelu SCRUM
+2. Zarządzacie sprintami 
+3. Możliwość obsługi wielu projektów
+4. użytkownicy
+5. użytkownicy mogą być przyporządkowani do wielu projektów
+6. Role
+7. Po jednej roli dla każdego projektu
+8. Użytkownicy mogą pełnić wiele różnych ról w wielu różnych projektach
+9. Lista sprintów odbytych, odbywanych i będących do odbycia
+10. Możliwość podejrzenia sprtintów z sprawozdaniami
+11. Elementy mikrokupki wymagań do danego sprinta
+12. Czas wykonania zadania w godzinach
+15. Możliwość dodawania komentarzy
+16. Dokumentacja listy stanów w danym wybranym czasie (historia)
+17. Stany zadań oczekujący wykonywany i zakończony
+18. Automatyczne guziki do zmiany stanów
+19. Automatyczne przypisywanie pewnych zadań (sugerowanie) dla odpowiednich osób
+20. Zadania oczekujące na wykonanie mogą być automatycznie przypisane do wolnych użytkowników
+21. Możliwość tworzenia własnych stanów
+22. Automatyczność przechodzenia stanów
+23. Przekierowania stanów
