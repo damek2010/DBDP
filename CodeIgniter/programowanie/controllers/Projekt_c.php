@@ -20,6 +20,19 @@ class Projekt_c extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('projekt_v');
+		if(!$this->session->userdata('log_zal'))
+		{
+			header ('Location: /ci/');
+		} else {
+			$this->load->model('menu_m');
+				$menu = $this->menu_m->start();
+				
+			$data = array(
+					'menu' => $menu,
+				);
+			$this->load->view('head_v.php', $data);
+			$this->load->view('projekt_v', $data);
+			$this->load->view('foot_v.php', $data);
+		}
 	}
 }
