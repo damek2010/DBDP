@@ -28,12 +28,13 @@ class Log_c extends CI_Controller {
 		$this->form_validation->set_rules('password','Password','trim|xss_clean|callback_check['.$this->input->post('login').']');
 		if ($this->form_validation->run() == FALSE)
 		{
+			$this->session->sess_destroy();
 			$this->load->view('log_v');
 		}
 		else
 		{
 			$this->session->set_userdata('log_zal', $this->input->post('login'));
-			header ('Location: glowna');
+			header ('Location: /ci/projekt');
 		}
 	}
 

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Projekt_look_c extends CI_Controller {
+class Projekt_del_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -27,17 +27,32 @@ class Projekt_look_c extends CI_Controller {
 			$this->load->model('menu_m');
 				$menu = $this->menu_m->start();
 				
-			$this->load->model('look_m');
-				$look = $this->look_m->start();
+			$this->load->model('del_m');
+				$del = $this->del_m->start();
 				
 			$data = array(
 					'menu' => $menu,
-					'look' => $look,
+					'del' => $del,
 				);
 				
 			$this->load->view('head_v.php', $data);
-			$this->load->view('projekt_look_v', $data);
+			$this->load->view('projekt_del_v', $data);
 			$this->load->view('foot_v.php', $data);
 		}
+	}
+	
+	public function usun()
+	{
+		$pytanie = 'DELETE FROM Projekty WHERE id_projektu = "' . $_POST["selectbasic"] . '"';
+		echo $pytanie;
+		if ($this->db->simple_query($pytanie))
+		{
+			echo "<br/>Success!";
+		}
+		else
+		{
+			echo "<br/>Query failed!";
+		}
+		header ('Location: projekt');
 	}
 }
