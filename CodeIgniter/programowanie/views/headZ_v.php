@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="panel-heading">
 					    <h3 class="panel-title">
-						<span class="glyphicon glyphicon-knight"></span> ZADANIA</h3>
+						<span class="glyphicon glyphicon-knight"></span> ZADANIA >> <a href=#>Projekt A</a></h3>
 					</div>
 					<?= $menu; ?>
 					<div class="panel-heading">
