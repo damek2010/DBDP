@@ -18,12 +18,12 @@ class Look_m extends CI_Model {
 
 		foreach ($query->result() as $row)
 		{
-			$dane .= '<tr>
+			$dane .= '<tr onclick="window.location=\'/ci/zadanie/' . $row->id_projektu . '\'" style="cursor:pointer;">
 					<td>' . $row->id_projektu . '</td>
 					<td>' . $row->nazwa_projektu . '</td>
 					<td>' . $row->data_startu . '</td>
 					<td>' . $row->data_zakonczenia . '</td>
-				</tr><br/>';
+				</tr>';
 		}
 		
 		return $dane;

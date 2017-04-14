@@ -20,8 +20,8 @@ class Menu_m extends CI_Model {
 						  <a href="/ci/projekt_del" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-trash"></span> <br/>Usuń</a>
 						</div>
 						<div class="col-xs-6 col-md-6">
-						  <a href="#" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-knight"></span> <br/>Zadania</a>
-						  <a href="#" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-repeat"></span> <br/>Sprinty</a>
+						  <a href="/ci/zadanie" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-knight"></span> <br/>Zadania</a>
+						  <a href="/ci/sprint" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-repeat"></span> <br/>Sprinty</a>
 						  <a href="/ci/" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> <br/>User</a>
 						  <a href="/ci/wyloguj" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-off"></span> <br/>Wyloguj</a>
 						</div>

@@ -1,5 +1,5 @@
 <?php
-class Del_m extends CI_Model {
+class DelZ_m extends CI_Model {
 
 	private $wynik;
 	private $query;
@@ -7,7 +7,7 @@ class Del_m extends CI_Model {
         public function start()
         {
 			$this->wynik = '';
-			$pytanie = 'SELECT * FROM Projekty;';
+			$pytanie = 'SELECT * FROM Zadania;';
 			$this->query = $this->db->query($pytanie);
 			$this->edit();
 			return $this->wynik;
@@ -18,21 +18,21 @@ class Del_m extends CI_Model {
 		$vload = '';
 		foreach ($this->query->result() as $row)
 		{
-			$vload .= '<option value="' . $row->id_projektu . '">' . $row->id_projektu . '</option></br>';
+			$vload .= '<option value="' . $row->id_zadania . '">' . $row->id_zadania . '</option></br>';
 		}
 		return $vload;
 	}
 	
 	private function edit()
 	{
-		$this->wynik.= '<form class="form-horizontal" action="/ci/projekt_del_action" method="POST">
+		$this->wynik.= '<form class="form-horizontal" action="/ci/zadanie_del_action" method="POST">
 						<fieldset> 
 
 						<!-- Form Name -->
-						<center><legend>Usuwanie Projektu</legend></center>
+						<center><legend>Usuwanie Zadania</legend></center>
 						<!-- Select Basic -->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="selectbasic">Wybierz Projekt</label>
+						  <label class="col-md-4 control-label" for="selectbasic">Wybierz Zadanie</label>
 						  <div class="col-md-6">
 						    <select id="selectbasic" name="selectbasic" class="form-control">
 						      ' . $this->ladowanie() . '
