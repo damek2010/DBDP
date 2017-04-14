@@ -53,6 +53,7 @@ $route['default_controller'] = 'log_c';
 $route['wyloguj'] = 'log_c/logout';
 $route['logowanie'] = 'logowanie_c';
 $route['glowna'] = 'welcome';
+
 $route['projekt'] = 'projekt_c';
 $route['projekt_add'] = 'projekt_add_c';
 $route['projekt_add_action'] = 'projekt_add_c/dodaj';
@@ -62,5 +63,32 @@ $route['projekt_edit_action'] = 'projekt_edit_c/edycja';
 $route['projekt_look'] = 'projekt_look_c';
 $route['projekt_del'] = 'projekt_del_c';
 $route['projekt_del_action'] = 'projekt_del_c/usun';
+
+$route['zadanie'] = 'zadanie_c/index/';
+$route['zadanie/(:any)'] = 'zadanie_c/index/$1';
+$route['zadanie_add'] = 'zadanie_add_c';
+$route['zadanie_add_action'] = 'zadanie_add_c/dodaj';
+$route['zadanie_del'] = 'zadanie_del_c';
+$route['zadanie_del_action'] = 'zadanie_del_c/usun';
+$route['zadanie_edit'] = 'zadanie_edit_c/index/';
+$route['zadanie_edit/(:any)'] = 'zadanie_edit_c/index/$1';
+$route['zadanie_edit_action'] = 'zadanie_edit_c/edycja';
+
+$route['zadaniek'] = 'zadaniek_c/index/';
+$route['zadaniek/(:any)'] = 'zadaniek_c/index/$1';
+
+$route['sprint'] = 'sprint_c/index/';
+$route['sprint_add'] = 'sprint_add_c';
+$route['sprint_add_action'] = 'sprint_add_c/dodaj';
+$route['sprint_del'] = 'sprint_del_c';
+$route['sprint_del_action'] = 'sprint_del_c/usun';
+$route['sprint_edit'] = 'sprint_edit_c/index/';
+$route['sprint_edit/(:any)'] = 'sprint_edit_c/index/$1';
+$route['sprint_edit_action'] = 'sprint_edit_c/edycja';
+
+
+$route['sprintk'] = 'sprintk_c/index/';
+$route['sprintk/(:any)'] = 'sprintk_c/index/$1';
+
 #$route['404_override'] = '';
 #$route['translate_uri_dashes'] = FALSE;
