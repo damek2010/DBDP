@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas generowania: 14 Mar 2017, 12:55
+-- Czas generowania: 14 Kwi 2017, 19:38
 -- Wersja serwera: 5.5.52-0+deb8u1
 -- Wersja PHP: 5.6.27-0+deb8u1
 
@@ -48,6 +48,14 @@ CREATE TABLE IF NOT EXISTS `Projekty` (
   `data_zakonczenia` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Zrzut danych tabeli `Projekty`
+--
+
+INSERT INTO `Projekty` (`id_projektu`, `nazwa_projektu`, `data_startu`, `data_zakonczenia`) VALUES
+('pzum', 'Projekt z ustawionymi maskami', '2017-10-10', '2017-03-21'),
+('qwe1', 'Projekt testowy qwe1', '2011-11-12', '2012-12-12');
+
 -- --------------------------------------------------------
 
 --
@@ -72,6 +80,15 @@ CREATE TABLE IF NOT EXISTS `Sprinty` (
   `Projekty_id_projektu` char(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Zrzut danych tabeli `Sprinty`
+--
+
+INSERT INTO `Sprinty` (`id_sprintu`, `poczatek`, `koniec`, `Projekty_id_projektu`) VALUES
+('aa12', '2017-04-01', '2017-04-25', 'pzum'),
+('ab12', '2017-04-06', '2017-04-10', 'qwe1'),
+('ac11', '2017-01-05', '2017-03-12', 'qwe1');
+
 -- --------------------------------------------------------
 
 --
@@ -82,6 +99,14 @@ CREATE TABLE IF NOT EXISTS `Stany` (
   `id_stanu` char(4) NOT NULL,
   `wartosc` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `Stany`
+--
+
+INSERT INTO `Stany` (`id_stanu`, `wartosc`) VALUES
+('1', 'W trakcie'),
+('2', 'Gotowy');
 
 -- --------------------------------------------------------
 
@@ -109,6 +134,13 @@ CREATE TABLE IF NOT EXISTS `Uzytkownicy` (
   `nazwisko` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Zrzut danych tabeli `Uzytkownicy`
+--
+
+INSERT INTO `Uzytkownicy` (`identyfikator`, `haslo`, `imie`, `nazwisko`) VALUES
+('1111', '1111', 'Admin', 'Admin');
+
 -- --------------------------------------------------------
 
 --
@@ -123,6 +155,16 @@ CREATE TABLE IF NOT EXISTS `Zadania` (
   `Stany_id_stanu` char(4) NOT NULL,
   `Projekty_id_projektu` char(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `Zadania`
+--
+
+INSERT INTO `Zadania` (`id_zadania`, `procent_wykoanania`, `czas_trwania`, `kupka`, `Stany_id_stanu`, `Projekty_id_projektu`) VALUES
+('ab23', 20, '2017-03-01', '0', '2', 'qwe1'),
+('as13', 90, '2017-04-01', '1', '1', 'qwe1'),
+('c123', 71, '2017-02-01', '0', '1', 'pzum'),
+('zx12', 50, '2017-02-15', '1', '1', 'pzum');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -184,8 +226,8 @@ ALTER TABLE `Zadania`
 -- Ograniczenia dla tabeli `odpowiedzialny`
 --
 ALTER TABLE `odpowiedzialny`
-ADD CONSTRAINT `odpowiedzialny_Zadania_FK` FOREIGN KEY (`Zadania_id_zadania`) REFERENCES `Zadania` (`id_zadania`),
-ADD CONSTRAINT `odpowiedzialny_Uczestnicy_FK` FOREIGN KEY (`Uczestnicy_id_uczestnicy`, `Uczestnicy_Projekty_id_projektu`) REFERENCES `Uczestnicy` (`id_uczestnicy`, `Projekty_id_projektu`);
+ADD CONSTRAINT `odpowiedzialny_Uczestnicy_FK` FOREIGN KEY (`Uczestnicy_id_uczestnicy`, `Uczestnicy_Projekty_id_projektu`) REFERENCES `Uczestnicy` (`id_uczestnicy`, `Projekty_id_projektu`),
+ADD CONSTRAINT `odpowiedzialny_Zadania_FK` FOREIGN KEY (`Zadania_id_zadania`) REFERENCES `Zadania` (`id_zadania`);
 
 --
 -- Ograniczenia dla tabeli `Sprinty`
@@ -197,16 +239,16 @@ ADD CONSTRAINT `Sprinty_Projekty_FK` FOREIGN KEY (`Projekty_id_projektu`) REFERE
 -- Ograniczenia dla tabeli `Uczestnicy`
 --
 ALTER TABLE `Uczestnicy`
-ADD CONSTRAINT `Uczestnicy_Uzytkownicy_FK` FOREIGN KEY (`Uzytkownicy_identyfikator`) REFERENCES `Uzytkownicy` (`identyfikator`),
 ADD CONSTRAINT `Uczestnicy_Projekty_FK` FOREIGN KEY (`Projekty_id_projektu`) REFERENCES `Projekty` (`id_projektu`),
-ADD CONSTRAINT `Uczestnicy_Role_FK` FOREIGN KEY (`Role_id_roli`) REFERENCES `Role` (`id_roli`);
+ADD CONSTRAINT `Uczestnicy_Role_FK` FOREIGN KEY (`Role_id_roli`) REFERENCES `Role` (`id_roli`),
+ADD CONSTRAINT `Uczestnicy_Uzytkownicy_FK` FOREIGN KEY (`Uzytkownicy_identyfikator`) REFERENCES `Uzytkownicy` (`identyfikator`);
 
 --
 -- Ograniczenia dla tabeli `Zadania`
 --
 ALTER TABLE `Zadania`
-ADD CONSTRAINT `Zadania_Stany_FK` FOREIGN KEY (`Stany_id_stanu`) REFERENCES `Stany` (`id_stanu`),
-ADD CONSTRAINT `Zadania_Projekty_FK` FOREIGN KEY (`Projekty_id_projektu`) REFERENCES `Projekty` (`id_projektu`);
+ADD CONSTRAINT `Zadania_Projekty_FK` FOREIGN KEY (`Projekty_id_projektu`) REFERENCES `Projekty` (`id_projektu`),
+ADD CONSTRAINT `Zadania_Stany_FK` FOREIGN KEY (`Stany_id_stanu`) REFERENCES `Stany` (`id_stanu`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
