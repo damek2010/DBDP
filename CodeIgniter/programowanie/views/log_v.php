@@ -30,13 +30,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 							  <fieldset class="clearfix">
 
-							    <p ><span class="fa fa-user"></span><input name="login" type="text"  Placeholder="Login" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
-							    <p><span class="fa fa-lock"></span><input name="password" type="password"  Placeholder="Hasło" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+							    <p ><span class="fa fa-user"></span><input name="login" type="text"  Placeholder="Login - 1111" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+							    <p><span class="fa fa-lock"></span><input name="password" type="password"  Placeholder="Hasło - 1111" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
 							    
 							     <div>
 									
 										<span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Zaloguj się"></span>
-										<p style="font-size: 20px; color: white;"><br />Login: 1111<br />Hasło: 1111</p>
+										<!--<p style="font-size: 20px; color: white;"><br />Login: 1111<br />Hasło: 1111</p>-->
 									    </div>
 
 							  </fieldset>
