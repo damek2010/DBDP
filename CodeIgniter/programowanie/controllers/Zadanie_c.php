@@ -18,7 +18,7 @@ class Zadanie_c extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function index($src)
 	{
 		if(!$this->session->userdata('log_zal'))
 		{
@@ -27,10 +27,14 @@ class Zadanie_c extends CI_Controller {
 			$this->load->model('menuZ_m');
 				$menu = $this->menuZ_m->start();
 				
+			$this->load->model('lookZ_m');
+				$look = $this->lookZ_m->start($src);
+				
 			$data = array(
 					'menu' => $menu,
+					'look' => $look,
 				);
-			$this->load->view('head_v.php', $data);
+			$this->load->view('headZ_v.php', $data);
 			$this->load->view('zadanie_v', $data);
 			$this->load->view('foot_v.php', $data);
 		}

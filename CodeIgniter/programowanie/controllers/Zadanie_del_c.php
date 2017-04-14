@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Zadaniek_c extends CI_Controller {
+class Zadanie_del_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,7 +18,7 @@ class Zadaniek_c extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($src)
+	public function index()
 	{
 		if(!$this->session->userdata('log_zal'))
 		{
@@ -27,16 +27,32 @@ class Zadaniek_c extends CI_Controller {
 			$this->load->model('menuZ_m');
 				$menu = $this->menuZ_m->start();
 				
-			$this->load->model('zadaniek_m');
-				$zadaniek = $this->zadaniek_m->start($src);
+			$this->load->model('delZ_m');
+				$del = $this->delZ_m->start();
 				
 			$data = array(
 					'menu' => $menu,
-					'zadaniek' => $zadaniek,
+					'del' => $del,
 				);
-			$this->load->view('headZK_v.php', $data);
-			$this->load->view('zadaniek_v', $data);
+				
+			$this->load->view('headZ_v.php', $data);
+			$this->load->view('zadanie_del_v', $data);
 			$this->load->view('foot_v.php', $data);
 		}
+	}
+	
+	public function usun()
+	{
+		$pytanie = 'DELETE FROM Zadania WHERE id_zadania = "' . $_POST["selectbasic"] . '"';
+		echo $pytanie;
+		if ($this->db->simple_query($pytanie))
+		{
+			echo "<br/>Success!";
+		}
+		else
+		{
+			echo "<br/>Query failed!";
+		}
+		header ('Location: zadanie');
 	}
 }

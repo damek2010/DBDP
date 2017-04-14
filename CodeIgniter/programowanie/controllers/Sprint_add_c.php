@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sprintk_c extends CI_Controller {
+class Sprint_add_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,7 +18,7 @@ class Sprintk_c extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($src)
+	public function index() 
 	{
 		if(!$this->session->userdata('log_zal'))
 		{
@@ -27,16 +27,36 @@ class Sprintk_c extends CI_Controller {
 			$this->load->model('menuS_m');
 				$menu = $this->menuS_m->start();
 				
-			$this->load->model('sprintk_m');
-				$sprintk = $this->sprintk_m->start($src);
+			$this->load->model('addS_m');
+				$add = $this->addS_m->start();
 				
 			$data = array(
 					'menu' => $menu,
-					'sprintk' => $sprintk,
+					'add' => $add,
 				);
-			$this->load->view('headSK_v.php', $data);
-			$this->load->view('sprintk_v', $data);
+			$this->load->view('headS_v.php', $data);
+			$this->load->view('sprint_add_v', $data);
 			$this->load->view('foot_v.php', $data);
+		}
+	}
+	
+	public function dodaj()
+	{
+		if(!$this->session->userdata('log_zal'))
+		{
+			header ('Location: /ci/');
+		} else {
+			$pytanie = 'INSERT INTO Sprinty VALUES("'. $_POST["textinput0"] .'",STR_TO_DATE("'. $_POST["textinput2"] .'","%Y-%m-%d"),STR_TO_DATE("'. $_POST["textinput4"] .'","%Y-%m-%d"),"'.$_POST["projekty"].'")';
+			echo $pytanie;
+			if ($this->db->simple_query($pytanie))
+			{
+				echo "<br/>Success!";
+			}
+			else
+			{
+				echo "<br/>Query failed!";
+			}
+			header ('Location: sprint');
 		}
 	}
 }
