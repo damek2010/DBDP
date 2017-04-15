@@ -86,13 +86,13 @@ class EditS_m extends CI_Model {
 						<fieldset> 
 
 						<!-- Form Name -->
-						<center><legend>Edycja Zadania</legend></center>
+						<center><legend>Edycja Sprintów</legend></center>
 						<!-- Select Basic -->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="selectbasic">Wybierz Zadanie</label>
+						  <label class="col-md-4 control-label" for="selectbasic">Wybierz Sprint</label>
 						  <div class="col-md-6">
 						    <select onchange="document.location=\'/ci/sprint_edit/\'+this.value" id="selectbasic" name="selectbasic" class="form-control">
-							<option value="">Wybierz zadanie</option></br>
+							<option value="">Wybierz Sprint</option></br>
 						      ' . $this->ladowanie() . '
 						    </select>
 						  </div>

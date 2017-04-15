@@ -33,6 +33,8 @@ class EditZ_m extends CI_Model {
 					$this->wynik .= '<script> 
 						document.getElementById("textinput0").value = "' . $row->procent_wykoanania . '";
 						document.getElementById("textinput1").value = "' . $row->czas_trwania . '";
+						document.getElementById("textinput7").value = "' . $row->opis . '";
+						document.getElementById("textinput8").value = "' . $row->uwagi . '";
 						selectBox = document.getElementById("textinput6");
 						selectBox.remove(0);
 						for (var i = 0; i < selectBox.options.length; i++) 
@@ -53,6 +55,8 @@ class EditZ_m extends CI_Model {
 						document.getElementById("textinput0").disabled=false;
 						document.getElementById("textinput5").disabled=false;
 						document.getElementById("textinput6").disabled=false;
+						document.getElementById("textinput7").disabled=false;
+						document.getElementById("textinput8").disabled=false;
 						document.getElementById("button").disabled=false;
 						document.getElementById("k1").disabled=false;
 						document.getElementById("k2").disabled=false;
@@ -126,6 +130,24 @@ class EditZ_m extends CI_Model {
 						  <label class="col-md-4 control-label" for="textinput0">Procent Wykoanania</label>  
 						  <div class="col-md-6">
 						  <input disabled="disable" id="textinput0" name="textinput0" type="text" placeholder="Wpisz Procent Wykoanania" class="form-control input-md">
+						    
+						  </div>
+						</div>
+						
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput7">Opis</label>  
+						  <div class="col-md-6">
+						  <input disabled="disable" id="textinput7" name="textinput7" type="text" placeholder="Opis" class="form-control input-md">
+						    
+						  </div>
+						</div>
+						
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput8">Uwagi</label>  
+						  <div class="col-md-6">
+						  <input disabled="disable" id="textinput8" name="textinput8" type="text" placeholder="Uwagi" class="form-control input-md">
 						    
 						  </div>
 						</div>
