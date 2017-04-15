@@ -25,7 +25,7 @@ class Zadaniek_c extends CI_Controller {
 			header ('Location: /ci/');
 		} else {
 			$this->load->model('menuZ_m');
-				$menu = $this->menuZ_m->start();
+				$menu = $this->menuZ_m->start("zadaniek");
 				
 			$this->load->model('zadaniek_m');
 				$zadaniek = $this->zadaniek_m->start($src);

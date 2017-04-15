@@ -46,7 +46,7 @@ class Zadanie_add_c extends CI_Controller {
 		{
 			header ('Location: /ci/');
 		} else {
-			$pytanie = 'INSERT INTO Zadania VALUES("'. $_POST["textinput0"] .'","'. $_POST["textinput"] .'",STR_TO_DATE("'. $_POST["textinput2"] .'","%Y-%m-%d"),"' . $_POST["kupka"] . '","'.$_POST["stany"].'","'.$_POST["projekty"].'")';
+			$pytanie = 'INSERT INTO Zadania VALUES("'. $_POST["textinput0"] .'","'.$_POST["textinput7"].'","'. $_POST["textinput"] .'",STR_TO_DATE("'. $_POST["textinput2"] .'","%Y-%m-%d"),"' . $_POST["kupka"] . '","","'.$_POST["stany"].'","'.$_POST["projekty"].'")';
 			echo $pytanie;
 			if ($this->db->simple_query($pytanie))
 			{

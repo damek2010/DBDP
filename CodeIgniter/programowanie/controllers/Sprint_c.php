@@ -30,9 +30,13 @@ class Sprint_c extends CI_Controller {
 			$this->load->model('lookS_m');
 				$look = $this->lookS_m->start($src);
 				
+			$this->load->model('lookSC_m');
+				$lookSC = $this->lookSC_m->start($src);
+				
 			$data = array(
 					'menu' => $menu,
 					'look' => $look,
+					'lookSC' => $lookSC,
 				);
 			$this->load->view('headS_v.php', $data);
 			$this->load->view('sprint_v', $data);

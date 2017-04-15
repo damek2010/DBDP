@@ -25,7 +25,10 @@ class Zadanie_c extends CI_Controller {
 			header ('Location: /ci/');
 		} else {
 			$this->load->model('menuZ_m');
-				$menu = $this->menuZ_m->start();
+				$menu = $this->menuZ_m->start($src);
+				
+			$this->load->model('lookZC_m');
+				$lookZC_m = $this->lookZC_m->start($src);
 				
 			$this->load->model('lookZ_m');
 				$look = $this->lookZ_m->start($src);
@@ -33,6 +36,7 @@ class Zadanie_c extends CI_Controller {
 			$data = array(
 					'menu' => $menu,
 					'look' => $look,
+					'lookZC' => $lookZC_m,
 				);
 			$this->load->view('headZ_v.php', $data);
 			$this->load->view('zadanie_v', $data);
