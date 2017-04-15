@@ -78,6 +78,7 @@ $route['zadaniek'] = 'zadaniek_c/index/';
 $route['zadaniek/(:any)'] = 'zadaniek_c/index/$1';
 
 $route['sprint'] = 'sprint_c/index/';
+$route['sprint/(:any)'] = 'sprint_c/index/$1';
 $route['sprint_add'] = 'sprint_add_c';
 $route['sprint_add_action'] = 'sprint_add_c/dodaj';
 $route['sprint_del'] = 'sprint_del_c';
