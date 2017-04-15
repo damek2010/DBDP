@@ -19,9 +19,9 @@ class Zadaniek_m extends CI_Model {
 			foreach ($this->db->query($pytanie)->result() as $row) {
 				$this->wynik.= '<h1>' . $row->id_zadania . '</h1>
 					<h4>Opis Zadania</h4>
-					<p>Opis naszego zadania o id ' . $row->id_zadania . '!!!</p>
+					<p>' . $row->opis . '</p>
 					<h4>Uwagi do zadania</h4>
-					<p>Uwagi do naszego zadania o id ' . $row->id_zadania . '!!!</p>';
+					<p>' . $row->uwagi . '</p>';
 			}
 		} else {
 			header ('Location: /ci/');
