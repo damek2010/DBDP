@@ -60,6 +60,15 @@ class AddZ_m extends CI_Model {
 						    
 						  </div>
 						</div>
+						
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput7">Opis</label>  
+						  <div class="col-md-6">
+						  <input id="textinput7" name="textinput7" type="text" placeholder="Opis" class="form-control input-md">
+						    
+						  </div>
+						</div>
 
 						<!-- Password input-->
 						<div class="form-group">
