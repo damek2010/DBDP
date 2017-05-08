@@ -59,4 +59,6 @@ class Sprint_add_c extends CI_Controller {
 			header ('Location: sprint');
 		}
 	}
+	
+	
 }

@@ -55,4 +55,20 @@ class Sprint_del_c extends CI_Controller {
 		}
 		header ('Location: sprint');
 	}
+	
+	public function usunZadanie($src) 
+	{
+		$pytanie = 'DELETE FROM Sprinty_Zadania WHERE id = "' . $src . '"';
+		echo $pytanie;
+		if ($this->db->simple_query($pytanie))
+		{
+			echo "<br/>Success!";
+		}
+		else
+		{
+			echo "<br/>Query failed!";
+		}
+		header ('Location: /ci/sprint');
+	}
+	
 }
