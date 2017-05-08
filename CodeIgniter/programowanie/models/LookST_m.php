@@ -1,5 +1,5 @@
 <?php
-class LookZ_m extends CI_Model {
+class LookST_m extends CI_Model {
 
 	private $wynik;
 	private $src;
@@ -16,16 +16,16 @@ class LookZ_m extends CI_Model {
 	{
 		$zapytanie = '';
 		if(!empty($this->src)) {
-			$zapytanie = 'SELECT * FROM Zadania z JOIN Stany s ON z.Stany_id_stanu=s.id_stanu WHERE Projekty_id_projektu = "' . $this->src . '";';
+			$zapytanie = 'SELECT * FROM Sprinty s JOIN Sprinty_Zadania sz ON s.id_sprintu=sz.Sprinty_ID JOIN Zadania z ON z.id_zadania=sz.Zadania_ID  JOIN Stany st ON st.id_stanu=z.Stany_id_stanu WHERE s.id_sprintu = "' . $this->src . '";';
 		} else {
-			$zapytanie = 'SELECT * FROM Zadania z JOIN Stany s ON z.Stany_id_stanu=s.id_stanu;';
+			$zapytanie = 'SELECT * FROM Sprinty s JOIN Sprinty_Zadania sz ON s.id_sprintu=sz.Sprinty_ID JOIN Zadania z ON z.id_zadania=sz.Zadania_ID;';
 		}
 		
 		$query = $this->db->query($zapytanie);
 		$dane = '';
 
 		foreach ($query->result() as $row)
-		{
+		{		
 			$czas = abs(date("Y-m-d") - strtotime($row->czas_trwania));
 			$years = floor($czas / (365*60*60*24));
 			$months = floor(($czas - $years * 365*60*60*24) / (30*60*60*24));
@@ -37,9 +37,7 @@ class LookZ_m extends CI_Model {
 					<td><div class="progress" style="margin-bottom: -5px;"><div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="' . $row->procent_wykoanania . '"aria-valuemin="0" aria-valuemax="100" style="width:'. $row->procent_wykoanania .'%">'. $row->procent_wykoanania .'%
 						</div></div></td>
 					<td>' . $d . ' dni</td>
-					<td>' . (($row->kupka==1)?"Duża":"Mała") . '</td>
 					<td>' . $row->wartosc . '</td>
-					<td>' . $row->Projekty_id_projektu . '</td>
 				</tr>';
 		}
 		
@@ -53,20 +51,17 @@ class LookZ_m extends CI_Model {
 							<tr>
 								<th>ID Zadania</th>
 								<th>Procent wykonania</th>
-								<th>Czas Trwania</th>
-								<th>Kupka</th>
+								<th>Czas trwania</th>
 								<th>Stan</th>
-								<th>ID Projektu</th>
+								
 							</tr>
 						</thead>
 						<tfoot>
 							<tr>
 								<th>ID Zadania</th>
 								<th>Procent wykonania</th>
-								<th>Czas Trwania</th>
-								<th>Kupka</th>
+								<th>Czas trwania</th>
 								<th>Stan</th>
-								<th>ID Projektu</th>
 							</tr>
 						</tfoot>
 						<tbody>
