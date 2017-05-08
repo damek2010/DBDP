@@ -15,7 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							40% Czasu na realizacje projektu
 						</div>
 					</div>-->
-					<?=$lookSC?>
+					<!--<?=$lookSC?>-->
+					
 					<h2>Adam Stegenda <h2>
 					<h3>Lista odpowiedzialności w projekcie</h3>
 					
@@ -47,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							
 						</tbody>
 					    </table>-->
-					    <?=$look?>
+					    <?=$user?>
 				</div>
 			</div>
 		</div>
