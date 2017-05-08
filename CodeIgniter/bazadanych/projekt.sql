@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas generowania: 08 Maj 2017, 12:26
+-- Czas generowania: 08 Maj 2017, 20:13
 -- Wersja serwera: 5.5.52-0+deb8u1
 -- Wersja PHP: 5.6.27-0+deb8u1
 
@@ -23,17 +23,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `odpowiedzialny`
+-- Struktura tabeli dla tabeli `Odpowiedzialny`
 --
 
-CREATE TABLE IF NOT EXISTS `odpowiedzialny` (
+CREATE TABLE IF NOT EXISTS `Odpowiedzialny` (
   `Id_odpowiedzlnosci` char(4) NOT NULL,
   `data` date NOT NULL,
-  `aktualne` char(1) DEFAULT NULL,
-  `Zadania_id_zadania` char(4) DEFAULT NULL,
+  `aktualne` char(1) NOT NULL,
+  `Zadania_id_zadania` char(4) NOT NULL,
   `Uczestnicy_id_uczestnicy` char(4) NOT NULL,
   `Uczestnicy_Projekty_id_projektu` char(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `Odpowiedzialny`
+--
+
+INSERT INTO `Odpowiedzialny` (`Id_odpowiedzlnosci`, `data`, `aktualne`, `Zadania_id_zadania`, `Uczestnicy_id_uczestnicy`, `Uczestnicy_Projekty_id_projektu`) VALUES
+('od11', '2017-05-01', '1', 'ab23', 'aa12', 'pzum'),
+('od12', '2017-05-03', '1', 'axdf', 'aa12', 'pzum');
 
 -- --------------------------------------------------------
 
@@ -66,6 +74,14 @@ CREATE TABLE IF NOT EXISTS `Role` (
   `id_roli` char(3) NOT NULL,
   `wartosc` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `Role`
+--
+
+INSERT INTO `Role` (`id_roli`, `wartosc`) VALUES
+('gr1', 'Grafik'),
+('pr1', 'Programista');
 
 -- --------------------------------------------------------
 
@@ -100,16 +116,20 @@ CREATE TABLE IF NOT EXISTS `Sprinty_Zadania` (
 `id` int(11) NOT NULL,
   `Sprinty_ID` char(4) NOT NULL,
   `Zadania_ID` char(4) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Zrzut danych tabeli `Sprinty_Zadania`
 --
 
 INSERT INTO `Sprinty_Zadania` (`id`, `Sprinty_ID`, `Zadania_ID`) VALUES
-(1, 'aa12', 'ab23'),
-(2, 'aa12', 'c123'),
-(3, 'aa12', 'zx12');
+(3, 'aa12', 'zx12'),
+(6, 'aa12', 'axdf'),
+(10, 'aa12', 'ab23'),
+(11, 'sp02', 'c123'),
+(12, 'ac11', 'ab23'),
+(13, 'ab12', 'axdf'),
+(14, 'aa12', 'as13');
 
 -- --------------------------------------------------------
 
@@ -142,6 +162,14 @@ CREATE TABLE IF NOT EXISTS `Uczestnicy` (
   `Uzytkownicy_identyfikator` char(4) NOT NULL,
   `Role_id_roli` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `Uczestnicy`
+--
+
+INSERT INTO `Uczestnicy` (`id_uczestnicy`, `Projekty_id_projektu`, `Uzytkownicy_identyfikator`, `Role_id_roli`) VALUES
+('aa12', 'pzum', '1111', 'gr1'),
+('ab11', 'qwe1', '2222', 'pr1');
 
 -- --------------------------------------------------------
 
@@ -187,9 +215,9 @@ CREATE TABLE IF NOT EXISTS `Zadania` (
 --
 
 INSERT INTO `Zadania` (`id_zadania`, `opis`, `procent_wykoanania`, `czas_trwania`, `kupka`, `uwagi`, `Stany_id_stanu`, `Projekty_id_projektu`) VALUES
-('ab23', 'Zadanie polegające ab23', 20, '2017-03-01', '0', 'Uwagi do ab23', '2', 'qwe1'),
-('as13', 'Zadanie polegające as13', 90, '2017-04-01', '1', 'Uwagi do as13', '1', 'qwe1'),
-('axdf', 'instlacja bazy ', 44, '2017-11-11', '0', 'uwagi do zadania testowego', '1', 'qwe1'),
+('ab23', 'Zadanie polegające ab23', 20, '2017-03-23', '0', 'Uwagi do ab23', '2', 'qwe1'),
+('as13', 'Zadanie polegające as13', 90, '2017-01-22', '1', 'Uwagi do as13', '1', 'qwe1'),
+('axdf', 'instlacja bazy ', 44, '2017-03-01', '0', 'uwagi do zadania testowego', '1', 'qwe1'),
 ('c123', 'Zadanie polegające c123', 71, '2017-02-01', '0', 'Uwagi do c123', '1', 'pzum'),
 ('zx12', 'Zadanie polegające zx12', 50, '2017-02-15', '1', 'Uwagi do zx12', '1', 'pzum');
 
@@ -198,10 +226,10 @@ INSERT INTO `Zadania` (`id_zadania`, `opis`, `procent_wykoanania`, `czas_trwania
 --
 
 --
--- Indexes for table `odpowiedzialny`
+-- Indexes for table `Odpowiedzialny`
 --
-ALTER TABLE `odpowiedzialny`
- ADD PRIMARY KEY (`Id_odpowiedzlnosci`), ADD KEY `odpowiedzialny_Uczestnicy_FK` (`Uczestnicy_id_uczestnicy`,`Uczestnicy_Projekty_id_projektu`), ADD KEY `odpowiedzialny_Zadania_FK` (`Zadania_id_zadania`);
+ALTER TABLE `Odpowiedzialny`
+ ADD PRIMARY KEY (`Id_odpowiedzlnosci`);
 
 --
 -- Indexes for table `Projekty`
@@ -237,7 +265,7 @@ ALTER TABLE `Stany`
 -- Indexes for table `Uczestnicy`
 --
 ALTER TABLE `Uczestnicy`
- ADD PRIMARY KEY (`id_uczestnicy`,`Projekty_id_projektu`), ADD KEY `Uczestnicy_Projekty_FK` (`Projekty_id_projektu`), ADD KEY `Uczestnicy_Role_FK` (`Role_id_roli`), ADD KEY `Uczestnicy_Uzytkownicy_FK` (`Uzytkownicy_identyfikator`);
+ ADD PRIMARY KEY (`id_uczestnicy`);
 
 --
 -- Indexes for table `Uzytkownicy`
@@ -259,31 +287,16 @@ ALTER TABLE `Zadania`
 -- AUTO_INCREMENT dla tabeli `Sprinty_Zadania`
 --
 ALTER TABLE `Sprinty_Zadania`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- Ograniczenia dla zrzutów tabel
 --
-
---
--- Ograniczenia dla tabeli `odpowiedzialny`
---
-ALTER TABLE `odpowiedzialny`
-ADD CONSTRAINT `odpowiedzialny_Uczestnicy_FK` FOREIGN KEY (`Uczestnicy_id_uczestnicy`, `Uczestnicy_Projekty_id_projektu`) REFERENCES `Uczestnicy` (`id_uczestnicy`, `Projekty_id_projektu`),
-ADD CONSTRAINT `odpowiedzialny_Zadania_FK` FOREIGN KEY (`Zadania_id_zadania`) REFERENCES `Zadania` (`id_zadania`);
 
 --
 -- Ograniczenia dla tabeli `Sprinty`
 --
 ALTER TABLE `Sprinty`
 ADD CONSTRAINT `Sprinty_Projekty_FK` FOREIGN KEY (`Projekty_id_projektu`) REFERENCES `Projekty` (`id_projektu`);
-
---
--- Ograniczenia dla tabeli `Uczestnicy`
---
-ALTER TABLE `Uczestnicy`
-ADD CONSTRAINT `Uczestnicy_Projekty_FK` FOREIGN KEY (`Projekty_id_projektu`) REFERENCES `Projekty` (`id_projektu`),
-ADD CONSTRAINT `Uczestnicy_Role_FK` FOREIGN KEY (`Role_id_roli`) REFERENCES `Role` (`id_roli`),
-ADD CONSTRAINT `Uczestnicy_Uzytkownicy_FK` FOREIGN KEY (`Uzytkownicy_identyfikator`) REFERENCES `Uzytkownicy` (`identyfikator`);
 
 --
 -- Ograniczenia dla tabeli `Zadania`
