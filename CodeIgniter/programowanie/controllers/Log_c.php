@@ -33,7 +33,14 @@ class Log_c extends CI_Controller {
 		}
 		else
 		{
-			$this->session->set_userdata('log_zal', $this->input->post('login'));
+			$l = $this->input->post('login').'-:-';
+			$this->db->where('identyfikator',$this->input->post('login'));
+			$zapytanie = $this->db->get('Uzytkownicy');
+			foreach ($zapytanie->result() as $row)
+			{
+				$l .= $row->ranga;
+			}
+			$this->session->set_userdata('log_zal', $l);
 			header ('Location: /ci/projekt');
 		}
 	}
