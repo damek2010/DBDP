@@ -1,4 +1,4 @@
-<?php
+<?php 
 class UserU_m extends CI_Model {
 
 	private $wynik;
@@ -14,20 +14,31 @@ class UserU_m extends CI_Model {
 	
 	private function look()
 	{
+		$dane = '';
+		$pytanie = 'SELECT * FROM Uzytkownicy WHERE identyfikator= "' . $this->src . '";';
+		$query2 =$this->db->query($pytanie) ;
+		
+		foreach ($query2->result() as $row)
+		{
+			$dane .= '<h2> '.$row->imie .' '.$row->nazwisko.'  </h2>';
+		}		
+		
+		$dane.='<h3>Lista projektów w których użytkownik uczestnicy</h3>
+					
+					<p>Wybierz interesujący projekt</p>';
+		
 		$ranga = 'U';
 		if(explode("-:-",$_SESSION['log_zal'])[1] == 'A') {
 			$ranga = 'A';
 		}
-		$zapytanie = 'SELECT * FROM Uzytkownicy;';
+		$zapytanie = 'SELECT * FROM Uczestnicy WHERE Uzytkownicy_identyfikator="' . $this->src . '";';
 		$query = $this->db->query($zapytanie);
-		$dane = '';
+		
 		$dane .= '<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 				<thead>
 							<tr>
 								<th>ID uczestnicwa</th>
 								<th>Nazwa projektu</th>
-								<th>Data startu</th>
-								<th>Data zakończenia</th>
 								<th>Rola</th>
 								
 							</tr>
@@ -36,19 +47,15 @@ class UserU_m extends CI_Model {
 							<tr>
 								<th>ID uczestnicwa</th>
 								<th>Nazwa projektu</th>
-								<th>Data startu</th>
-								<th>Data zakończenia</th>
 								<th>Rola</th>
 							</tr>
 						</tfoot><tbody>';
 		foreach ($query->result() as $row)
 		{
-			$dane .= '<tr>
-					<td>' . $row->identyfikator . '</td>
-					<td>' . ($ranga=="A"?$row->haslo:str_repeat("*", strlen($row->haslo))) . '</td>
-					<td>' . $row->imie . '</td>
-					<td>' . $row->nazwisko . '</td>
-					<td>' . ($row->ranga=="A"?"Administrator":"Użytkownik") . '</td>
+			$dane .= '<tr onclick="window.location=\'/ci/usero/'.$this->src.'/' . $row->id_uczestnicy . '\'" style="cursor:pointer;">
+					<td>' . $row->id_uczestnicy . '</td>
+					<td>' . $row->Projekty_id_projektu . '</td>
+					<td>' . $row->Role_id_roli . '</td>
 				</tr>';
 		}
 		$dane .= '</tbody></table>';

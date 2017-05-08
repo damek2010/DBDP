@@ -21,7 +21,7 @@ class User_m extends CI_Model {
 		$zapytanie = 'SELECT * FROM Uzytkownicy;';
 		$query = $this->db->query($zapytanie);
 		$dane = '';
-		$dane .= '<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+		$dane .= '<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%  ">
 				<thead>
 					<tr><th>Identyfikator</th>
 					<th>Hasło</th>
@@ -38,8 +38,8 @@ class User_m extends CI_Model {
 				</tfoot><tbody>';
 		foreach ($query->result() as $row)
 		{
-			$dane .= '<tr>
-					<td>' . $row->identyfikator . '</td>
+			$dane .= '<tr   onclick="window.location=\'/ci/useru/' . $row->identyfikator . '\'" style="cursor:pointer;">
+					<td>' . $row->identyfikator . '</td >
 					<td>' . ($ranga=="A"?$row->haslo:str_repeat("*", strlen($row->haslo))) . '</td>
 					<td>' . $row->imie . '</td>
 					<td>' . $row->nazwisko . '</td>
