@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-sm-12 col-md-12">
 				<div class="alert-message alert-message-success">
 					<h3>Aktualności. Dziś jest <strong><?php echo date("d-m-Y"); ?></strong><h3>
-					<h4>Sprint należy do projektu: <strong> Projekt A </strong></h4>
+					<!--<h4>Sprint należy do projektu: <strong> Projekt A </strong></h4>
 					<h4>Data realizacji projektu: <strong> 03.01.2017-04.04.2017 </strong></h4>
 					<div class="progress">
 						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
@@ -22,7 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							aria-valuemin="0" aria-valuemax="100" style="width:80%">
 							80% Czasu realizacji sprintu
 						</div>
-					</div>
+					</div>-->
+					<?=$lookstc;?>
 					<!--<h4>Opis Sprintu</h4>
 					<p>Opis naszego sprintu</p>
 					<h4>Uwagi do sprintu</h4>
@@ -31,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h3>Lista zadań z kupki sprintu</h3>
 					
 					<p>Wybierz interesujące zadanie</p>
-					<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+					<!--<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
 								<th>ID Zadania</th>
@@ -60,7 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<tbody>
 							
 						</tbody>
-					    </table>
+					    </table>-->
+					    <?=$lookst;?>
 				</div>
 			</div>
 		</div>

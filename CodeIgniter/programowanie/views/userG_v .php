@@ -16,23 +16,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 					</div>-->
 					<?=$lookSC?>
-					<h3>Lista użytkownikó</h3>
+					<h2>Adam Stegenda</h2>
+					<h3>Lista odpowiedzialność i uczestnictwa</h3>
 					
 					<p>Wybierz interesującego użytkownika</p>
 					<!--<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
-								<th>ID Użytkownika</th>
-								<th>Nazwisko</th>
-								<th>Imie</th>
+								<th>ID uczestnicwa</th>
+								<th>Nazwa projektu</th>
+								<th>Data startu</th>
+								<th>Data zakończenia</th>
+								<th>Rola</th>
+								<th>ID odpowiedzialności</th>
+								<th>Data przydzielenia</th>
+								<th>ID zadania</th>
+								<th>Procent wykonania</th>
+								<th>Czas trwania</th>
+								<th>Kupka</th>
+								<th>Stan</th>
 								
 							</tr>
 						</thead>
 						<tfoot>
 							<tr>
-								<th>ID Użytkownika</th>			
-								<th>Nazwisko</th>
-								<th>Imie</th>
+								<th>ID uczestnicwa</th>
+								<th>Nazwa projektu</th>
+								<th>Data startu</th>
+								<th>Data zakończenia</th>
+								<th>Rola</th>
+								<th>ID odpowiedzialności</th>
+								<th>Data przydzielenia</th>
+								<th>ID zadania</th>
+								<th>Procent wykonania</th>
+								<th>Czas trwania</th>
+								<th>Kupka</th>
+								<th>Stan</th>
 							</tr>
 						</tfoot>
 						<tbody>

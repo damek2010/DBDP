@@ -15,10 +15,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							40% Czasu na realizacje projektu
 						</div>
 					</div>-->
-					<?=$lookSC?>
-					<h3>Lista użytkownikó</h3>
+					<!--<?=$lookSC?>-->
+					<h3>Lista użytkowników</h3>
 					
-					<p>Wybierz interesującego użytkownika</p>
+					<!--<p>Wybierz interesującego użytkownika</p>
 					<!--<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							
 						</tbody>
 					    </table>-->
-					    <?=$look?>
+					    <?=$user?>
 				</div>
 			</div>
 		</div>
