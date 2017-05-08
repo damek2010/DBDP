@@ -18,7 +18,7 @@ class UserO_c extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($src)
+	public function index($src,$src2)
 	{
 		if(!$this->session->userdata('log_zal'))
 		{
@@ -28,7 +28,7 @@ class UserO_c extends CI_Controller {
 				$menu = $this->menuUO_m->start();
 				
 			$this->load->model('userO_m');
-				$user = $this->userO_m->start($src);
+				$user = $this->userO_m->start($src,$src2);
 				
 				$look = '';
 				
