@@ -24,7 +24,7 @@ class Sprintk_m extends CI_Model {
 					<p>Uwagi do naszego Sprintu o id ' . $row->id_sprintu . '!!!</p>';
 			}
 		} else {
-			header ('Location: /ci/');
+			//header ('Location: /ci/');
 		}
 	}
 }
