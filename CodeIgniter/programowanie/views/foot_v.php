@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<p class="navbar-text pull-left">© 2017 DBDP SPRINT IS GOOOOD!!!!</p>
 					</div>
 				</div>
-			</div>
+			</div> <br/><br/><br/>
 		</div>
 	</div>
 </div>
