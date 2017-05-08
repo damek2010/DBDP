@@ -91,5 +91,10 @@ $route['sprint_edit_action'] = 'sprint_edit_c/edycja';
 $route['sprintk'] = 'sprintk_c/index/';
 $route['sprintk/(:any)'] = 'sprintk_c/index/$1';
 
+$route['user'] = 'user_c/index/';
+$route['usero'] = 'userO_c';
+$route['userg'] = 'userG_c';
+$route['useru'] = 'userU_c';
+
 #$route['404_override'] = '';
 #$route['translate_uri_dashes'] = FALSE;
