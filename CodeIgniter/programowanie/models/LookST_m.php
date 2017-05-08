@@ -38,6 +38,7 @@ class LookST_m extends CI_Model {
 						</div></div></td>
 					<td>' . $d . ' dni</td>
 					<td>' . $row->wartosc . '</td>
+					<td><a href="/ci/sprint_del_zadanie/' . $row->id . '" class="btn btn-danger btn-xs" role="button"></span>Usuń</a></td>
 				</tr>';
 		}
 		
@@ -46,6 +47,11 @@ class LookST_m extends CI_Model {
 	
 	private function look()
 	{
+		$this->wynik .= '<h3 style="display:inline;">
+					Lista zadań z kupki sprintu
+				</h3>
+				&nbsp <a href="/ci/sprintk_add_zadanie/' . $this->src . '" class="btn btn-success btn-xs" role="button"></span>Dodaj zadanie</a>
+				<p>Wybierz interesujące zadanie</p>';
 		$this->wynik.= '<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
@@ -53,7 +59,7 @@ class LookST_m extends CI_Model {
 								<th>Procent wykonania</th>
 								<th>Czas trwania</th>
 								<th>Stan</th>
-								
+								<th width="10px;">Usuń zadanie</th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -62,6 +68,7 @@ class LookST_m extends CI_Model {
 								<th>Procent wykonania</th>
 								<th>Czas trwania</th>
 								<th>Stan</th>
+								<th>Usuń zadanie</th>
 							</tr>
 						</tfoot>
 						<tbody>
