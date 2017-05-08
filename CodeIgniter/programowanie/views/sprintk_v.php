@@ -29,9 +29,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h4>Uwagi do sprintu</h4>
 					<p>Uwagi do naszego sprintu</p>-->
 					<?=$sprintk?>
-					<h3>Lista zadań z kupki sprintu</h3>
-					
-					<p>Wybierz interesujące zadanie</p>
 					<!--<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>

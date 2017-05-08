@@ -17,10 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>-->
 					<!--<?=$lookSC?>-->
 					
-					<h2>Adam Stegenda <h2>
-					<h3>Lista odpowiedzialności w projekcie</h3>
 					
-					<p>Wybierz interesujace zadanie</p>
+					
 					<!--<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
