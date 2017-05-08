@@ -27,12 +27,15 @@ class User_c extends CI_Controller {
 			$this->load->model('menuS_m');
 				$menu = $this->menuS_m->start();
 				
-			$this->load->model('sprintk_m');
-				$sprintk = $this->sprintk_m->start($src);
+			$this->load->model('user_m');
+				$user = $this->user_m->start($src);
+				
+				$look = '';
 				
 			$data = array(
 					'menu' => $menu,
-					'sprintk' => $sprintk,
+					'user' => $user,
+					'look' => $look,
 				);
 			$this->load->view('headSK_v.php', $data);
 			$this->load->view('user_v.php', $data);

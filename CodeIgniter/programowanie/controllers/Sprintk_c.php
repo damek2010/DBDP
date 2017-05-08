@@ -30,9 +30,17 @@ class Sprintk_c extends CI_Controller {
 			$this->load->model('sprintk_m');
 				$sprintk = $this->sprintk_m->start($src);
 				
+			$this->load->model('LookST_m');
+				$lookst = $this->LookST_m->start($src);
+			
+			$this->load->model('LookSTC_m');
+				$lookstc = $this->LookSTC_m->start($src);
+				
 			$data = array(
 					'menu' => $menu,
 					'sprintk' => $sprintk,
+					'lookst' => $lookst,
+					'lookstc' => $lookstc,
 				);
 			$this->load->view('headSK_v.php', $data);
 			$this->load->view('sprintk_v', $data);
