@@ -24,17 +24,20 @@ class UserO_c extends CI_Controller {
 		{
 			header ('Location: /ci/');
 		} else {
-			$this->load->model('menuS_m');
-				$menu = $this->menuS_m->start();
+			$this->load->model('menuUO_m');
+				$menu = $this->menuUO_m->start();
 				
-			$this->load->model('sprintk_m');
-				$sprintk = $this->sprintk_m->start($src);
+			$this->load->model('userO_m');
+				$user = $this->userO_m->start($src);
+				
+				$look = '';
 				
 			$data = array(
 					'menu' => $menu,
-					'sprintk' => $sprintk,
+					'user' => $user,
+					'look' => $look,
 				);
-			$this->load->view('headSK_v.php', $data);
+			$this->load->view('headUO_v.php', $data);
 			$this->load->view('userO_v.php', $data);
 			$this->load->view('foot_v.php', $data);
 		}
