@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							40% Czasu na realizacje projektu
 						</div>
 					</div>-->
-					<?=$lookSC?>
+					<!--<?=$lookSC?>-->
 					<h2>Adam Stegenda <h2>
 					<h3>Lista projektów w których użytkownik uczestnicy</h3>
 					
@@ -23,28 +23,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!--<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
-								<th>ID uczestnicwa</th>
-								<th>Nazwa projektu</th>
-								<th>Data startu</th>
-								<th>Data zakończenia</th>
-								<th>Rola</th>
-								
+								<th>ID odpowiedzialności</th>
+								<th>Data przydzielenia</th>
+								<th>ID zadania</th>
+								<th>Procent wykonania</th>
+								<th>Czas trwania</th>
+								<th>Kupka</th>
+								<th>Stan</th>
 							</tr>
 						</thead>
 						<tfoot>
 							<tr>
-								<th>ID uczestnicwa</th>
-								<th>Nazwa projektu</th>
-								<th>Data startu</th>
-								<th>Data zakończenia</th>
-								<th>Rola</th>
+								<th>ID odpowiedzialności</th>
+								<th>Data przydzielenia</th>
+								<th>ID zadania</th>
+								<th>Procent wykonania</th>
+								<th>Czas trwania</th>
+								<th>Kupka</th>
+								<th>Stan</th>
 							</tr>
 						</tfoot>
 						<tbody>
 							
 						</tbody>
 					    </table>-->
-					    <?=$look?>
+					    <?=$user?>
 				</div>
 			</div>
 		</div>
