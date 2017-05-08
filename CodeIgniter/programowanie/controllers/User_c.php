@@ -24,8 +24,8 @@ class User_c extends CI_Controller {
 		{
 			header ('Location: /ci/');
 		} else {
-			$this->load->model('menuS_m');
-				$menu = $this->menuS_m->start();
+			$this->load->model('menuU_m');
+				$menu = $this->menuU_m->start();
 				
 			$this->load->model('user_m');
 				$user = $this->user_m->start($src);
@@ -37,7 +37,7 @@ class User_c extends CI_Controller {
 					'user' => $user,
 					'look' => $look,
 				);
-			$this->load->view('headSK_v.php', $data);
+			$this->load->view('headU_v.php', $data);
 			$this->load->view('user_v.php', $data);
 			$this->load->view('foot_v.php', $data);
 		}
