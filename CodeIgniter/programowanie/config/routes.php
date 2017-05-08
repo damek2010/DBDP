@@ -86,15 +86,20 @@ $route['sprint_del_action'] = 'sprint_del_c/usun';
 $route['sprint_edit'] = 'sprint_edit_c/index/';
 $route['sprint_edit/(:any)'] = 'sprint_edit_c/index/$1';
 $route['sprint_edit_action'] = 'sprint_edit_c/edycja';
+$route['sprint_del_zadanie/(:any)'] = 'sprint_del_c/usunZadanie/$1';
 
-
+$route['sprintk_add_zadanie/(:any)'] = 'sprintk_c/dodajZadanie/$1';
+$route['sprintk_add_zadanie_action'] = 'sprintk_c/dodajZadanieAction';
 $route['sprintk'] = 'sprintk_c/index/';
 $route['sprintk/(:any)'] = 'sprintk_c/index/$1';
 
 $route['user'] = 'user_c/index/';
-$route['usero'] = 'userO_c';
-$route['userg'] = 'userG_c';
-$route['useru'] = 'userU_c';
+$route['user_add'] = 'user_add_c';
+$route['usero'] = 'userO_c/index/';
+$route['usero_add'] = 'userO_add_c';
+$route['useru/(:any)'] = 'userU_c/index/$1';
+$route['usero/(:any)/(:any)'] = 'userO_c/index/$1/$2';
+$route['useru_add'] = 'userU_add_c';
 
 #$route['404_override'] = '';
 #$route['translate_uri_dashes'] = FALSE;
