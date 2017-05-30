@@ -17,10 +17,7 @@ class UserO_m extends CI_Model {
 	private function look()
 	{
 		$dane = '';
-		$ranga = 'U';
-		if(explode("-:-",$_SESSION['log_zal'])[1] == 'A') {
-			$ranga = 'A';
-		}
+
 		$pytanie = 'SELECT * FROM Uzytkownicy WHERE identyfikator= "' . $this->src . '";';
 		$query2 =$this->db->query($pytanie) ;
 		
@@ -40,6 +37,7 @@ class UserO_m extends CI_Model {
 								<th>ID odpowiedzialności</th>
 								<th>Data przydzielenia</th>
 								<th>ID zadania</th>
+								<th>Aktualne</th>
 								<th>Procent wykonania</th>
 								<th>Czas trwania</th>
 								<th>Stan</th>
@@ -50,6 +48,7 @@ class UserO_m extends CI_Model {
 								<th>ID odpowiedzialności</th>
 								<th>Data przydzielenia</th>
 								<th>ID zadania</th>
+								<th>Aktualne</th>
 								<th>Procent wykonania</th>
 								<th>Czas trwania</th>
 								<th>Stan</th>
@@ -67,6 +66,7 @@ class UserO_m extends CI_Model {
 					<td>' . $row->Id_odpowiedzlnosci . '</td>
 					<td>' . $row->data . '</td>
 					<td>' . $row->Zadania_id_zadania . '</td>
+					<td>' . (($row->aktualne==1)?"Aktualne":"Nieaktualne") . '</td>
 					<td><div class="progress" style="margin-bottom: -5px;"><div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="' . $row->procent_wykoanania . '"aria-valuemin="0" aria-valuemax="100" style="width:'. $row->procent_wykoanania .'%">'. $row->procent_wykoanania .'%
 						</div></div></td>
 					<td>' . $d . ' dni</td>

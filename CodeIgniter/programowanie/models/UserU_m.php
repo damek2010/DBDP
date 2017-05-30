@@ -27,10 +27,7 @@ class UserU_m extends CI_Model {
 					
 					<p>Wybierz interesujący projekt</p>';
 		
-		$ranga = 'U';
-		if(explode("-:-",$_SESSION['log_zal'])[1] == 'A') {
-			$ranga = 'A';
-		}
+
 		$zapytanie = 'SELECT * FROM Uczestnicy WHERE Uzytkownicy_identyfikator="' . $this->src . '";';
 		$query = $this->db->query($zapytanie);
 		
