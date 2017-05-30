@@ -24,8 +24,8 @@ class User_add_c extends CI_Controller {
 		{
 			header ('Location: /ci/');
 		} else {
-			$this->load->model('menuS_m');
-				$menu = $this->menuS_m->start();
+			$this->load->model('menuU_m');
+				$menu = $this->menuU_m->start();
 				
 			$this->load->model('addU_m');
 				$add = $this->addU_m->start();
@@ -46,7 +46,7 @@ class User_add_c extends CI_Controller {
 		{
 			header ('Location: /ci/');
 		} else {
-			$pytanie = 'INSERT INTO Sprinty VALUES("'. $_POST["textinput0"] .'",STR_TO_DATE("'. $_POST["textinput2"] .'","%Y-%m-%d"),STR_TO_DATE("'. $_POST["textinput4"] .'","%Y-%m-%d"),"'.$_POST["projekty"].'")';
+			$pytanie = 'INSERT INTO Uzytkownicy VALUES("'. $_POST["textinput0"] .'","'. $_POST["textinput1"] .'","'. $_POST["textinput2"] .'","'. $_POST["textinput3"] .'","'.$_POST["projekty"].'")';
 			echo $pytanie;
 			if ($this->db->simple_query($pytanie))
 			{
@@ -56,9 +56,8 @@ class User_add_c extends CI_Controller {
 			{
 				echo "<br/>Query failed!";
 			}
-			header ('Location: sprint');
+			header ('Location: user');
 		}
 	}
-	
-	
+
 }
