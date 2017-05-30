@@ -25,7 +25,7 @@ class UserU_c extends CI_Controller {
 			header ('Location: /ci/');
 		} else {
 			$this->load->model('menuUU_m');
-				$menu = $this->menuUU_m->start();
+				$menu = $this->menuUU_m->start($src);
 				
 			$this->load->model('userU_m');
 				$user = $this->userU_m->start($src);

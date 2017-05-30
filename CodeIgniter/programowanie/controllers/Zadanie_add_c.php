@@ -18,14 +18,14 @@ class Zadanie_add_c extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index() 
+	public function index($src) 
 	{
 		if(!$this->session->userdata('log_zal'))
 		{
 			header ('Location: /ci/');
 		} else {
 			$this->load->model('menuZ_m');
-				$menu = $this->menuZ_m->start();
+				$menu = $this->menuZ_m->start($src);
 				
 			$this->load->model('addZ_m');
 				$add = $this->addZ_m->start();

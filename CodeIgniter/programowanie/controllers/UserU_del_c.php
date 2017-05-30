@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class UserU_add_c extends CI_Controller {
+class UserU_del_c extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,47 +18,41 @@ class UserU_add_c extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index() 
+	public function index($src)
 	{
 		if(!$this->session->userdata('log_zal'))
 		{
 			header ('Location: /ci/');
 		} else {
-			$this->load->model('menuUU_m');
-				$menu = $this->menuUU_m->start();
+			$this->load->model('MenuUU_m');
+				$menu = $this->MenuUU_m->start($src);
 				
-			$this->load->model('addUU_m');
-				$add = $this->addUU_m->start();
+			$this->load->model('DelUU_m');
+				$del = $this->DelUU_m->start($src);
 				
 			$data = array(
 					'menu' => $menu,
-					'add' => $add,
+					'del' => $del,
 				);
+				
 			$this->load->view('headUU_v.php', $data);
-			$this->load->view('userU_add_v', $data);
+			$this->load->view('userU_del_v', $data);
 			$this->load->view('foot_v.php', $data);
 		}
 	}
 	
-	public function dodaj()
+	public function usun()
 	{
-		if(!$this->session->userdata('log_zal'))
+		$pytanie = 'DELETE FROM Uczestnicy WHERE id_uczestnicy = "' . $_POST["selectbasic"] . '"';
+		echo $pytanie;
+		if ($this->db->simple_query($pytanie))
 		{
-			header ('Location: /ci/');
-		} else {
-			$pytanie = 'INSERT INTO Sprinty VALUES("'. $_POST["textinput0"] .'",STR_TO_DATE("'. $_POST["textinput2"] .'","%Y-%m-%d"),STR_TO_DATE("'. $_POST["textinput4"] .'","%Y-%m-%d"),"'.$_POST["projekty"].'")';
-			echo $pytanie;
-			if ($this->db->simple_query($pytanie))
-			{
-				echo "<br/>Success!";
-			}
-			else
-			{
-				echo "<br/>Query failed!";
-			}
-			header ('Location: sprint');
+			echo "<br/>Success!";
 		}
+		else
+		{
+			echo "<br/>Query failed!";
+		}
+		header ('Location: useru/'. $_POST["textinput10"] .'');
 	}
-	
-	
 }

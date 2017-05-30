@@ -18,17 +18,17 @@ class UserU_add_c extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index() 
+	public function index($src) 
 	{
 		if(!$this->session->userdata('log_zal'))
 		{
 			header ('Location: /ci/');
 		} else {
 			$this->load->model('menuUU_m');
-				$menu = $this->menuUU_m->start();
+				$menu = $this->menuUU_m->start($src);
 				
 			$this->load->model('addUU_m');
-				$add = $this->addUU_m->start();
+				$add = $this->addUU_m->start($src);
 				
 			$data = array(
 					'menu' => $menu,
@@ -46,7 +46,7 @@ class UserU_add_c extends CI_Controller {
 		{
 			header ('Location: /ci/');
 		} else {
-			$pytanie = 'INSERT INTO Sprinty VALUES("'. $_POST["textinput0"] .'",STR_TO_DATE("'. $_POST["textinput2"] .'","%Y-%m-%d"),STR_TO_DATE("'. $_POST["textinput4"] .'","%Y-%m-%d"),"'.$_POST["projekty"].'")';
+			$pytanie = 'INSERT INTO Uczestnicy VALUES("'. $_POST["textinput0"] .'","' . $_POST["projekty"] . '","' . $_POST["textinput1"] . '","'. $_POST["rola"] .'");';
 			echo $pytanie;
 			if ($this->db->simple_query($pytanie))
 			{
@@ -56,7 +56,7 @@ class UserU_add_c extends CI_Controller {
 			{
 				echo "<br/>Query failed!";
 			}
-			header ('Location: sprint');
+			header ('Location: useru/'. $_POST["textinput1"] .'');
 		}
 	}
 	

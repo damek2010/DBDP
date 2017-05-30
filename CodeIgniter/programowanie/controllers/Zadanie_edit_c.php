@@ -25,7 +25,7 @@ class Zadanie_edit_c extends CI_Controller {
 			header ('Location: /ci/');
 		} else {
 			$this->load->model('menuZ_m');
-				$menu = $this->menuZ_m->start();
+				$menu = $this->menuZ_m->start($src);
 				
 			$this->load->model('editZ_m');
 				$edit = $this->editZ_m->start($src);
