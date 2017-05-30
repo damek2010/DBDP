@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas generowania: 08 Maj 2017, 20:13
+-- Czas generowania: 28 Maj 2017, 22:36
 -- Wersja serwera: 5.5.52-0+deb8u1
 -- Wersja PHP: 5.6.27-0+deb8u1
 
@@ -31,17 +31,16 @@ CREATE TABLE IF NOT EXISTS `Odpowiedzialny` (
   `data` date NOT NULL,
   `aktualne` char(1) NOT NULL,
   `Zadania_id_zadania` char(4) NOT NULL,
-  `Uczestnicy_id_uczestnicy` char(4) NOT NULL,
-  `Uczestnicy_Projekty_id_projektu` char(4) NOT NULL
+  `Uczestnicy_id_uczestnicy` char(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Zrzut danych tabeli `Odpowiedzialny`
 --
 
-INSERT INTO `Odpowiedzialny` (`Id_odpowiedzlnosci`, `data`, `aktualne`, `Zadania_id_zadania`, `Uczestnicy_id_uczestnicy`, `Uczestnicy_Projekty_id_projektu`) VALUES
-('od11', '2017-05-01', '1', 'ab23', 'aa12', 'pzum'),
-('od12', '2017-05-03', '1', 'axdf', 'aa12', 'pzum');
+INSERT INTO `Odpowiedzialny` (`Id_odpowiedzlnosci`, `data`, `aktualne`, `Zadania_id_zadania`, `Uczestnicy_id_uczestnicy`) VALUES
+('1232', '2006-11-11', '0', 'c123', 'aa22'),
+('qwe4', '2017-04-13', '1', 'zx12', 'aa22');
 
 -- --------------------------------------------------------
 
@@ -116,20 +115,22 @@ CREATE TABLE IF NOT EXISTS `Sprinty_Zadania` (
 `id` int(11) NOT NULL,
   `Sprinty_ID` char(4) NOT NULL,
   `Zadania_ID` char(4) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Zrzut danych tabeli `Sprinty_Zadania`
 --
 
 INSERT INTO `Sprinty_Zadania` (`id`, `Sprinty_ID`, `Zadania_ID`) VALUES
-(3, 'aa12', 'zx12'),
-(6, 'aa12', 'axdf'),
-(10, 'aa12', 'ab23'),
 (11, 'sp02', 'c123'),
-(12, 'ac11', 'ab23'),
-(13, 'ab12', 'axdf'),
-(14, 'aa12', 'as13');
+(18, 'aa12', 'c123'),
+(19, 'aa12', 'zx12'),
+(20, 'aa12', ''),
+(21, 'ab12', 'axdf'),
+(22, 'ab12', 'ab23'),
+(23, 'ac11', 'ab23'),
+(24, 'ac11', ''),
+(25, 'ac11', 'as13');
 
 -- --------------------------------------------------------
 
@@ -168,8 +169,10 @@ CREATE TABLE IF NOT EXISTS `Uczestnicy` (
 --
 
 INSERT INTO `Uczestnicy` (`id_uczestnicy`, `Projekty_id_projektu`, `Uzytkownicy_identyfikator`, `Role_id_roli`) VALUES
-('aa12', 'pzum', '1111', 'gr1'),
-('ab11', 'qwe1', '2222', 'pr1');
+('2222', 'qwe1', '1111', 'gr1'),
+('aa22', 'pzum', '1111', 'gr1'),
+('ab11', 'qwe1', '2222', 'pr1'),
+('abcd', 'pzum', '1111', 'pr1');
 
 -- --------------------------------------------------------
 
@@ -190,8 +193,8 @@ CREATE TABLE IF NOT EXISTS `Uzytkownicy` (
 --
 
 INSERT INTO `Uzytkownicy` (`identyfikator`, `haslo`, `imie`, `nazwisko`, `ranga`) VALUES
-('1111', '1111', 'Admin', 'Admin', 'A'),
-('2222', '2222', 'User', 'User', 'U');
+('1111', '1111', 'Admin Imie', 'Admin Nazwisko', 'A'),
+('2222', '2222', 'User Imie', 'User Nazwisko', 'U');
 
 -- --------------------------------------------------------
 
@@ -287,7 +290,7 @@ ALTER TABLE `Zadania`
 -- AUTO_INCREMENT dla tabeli `Sprinty_Zadania`
 --
 ALTER TABLE `Sprinty_Zadania`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- Ograniczenia dla zrzutów tabel
 --
