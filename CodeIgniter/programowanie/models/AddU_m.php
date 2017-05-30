@@ -11,20 +11,16 @@ class AddU_m extends CI_Model {
         }
 	
 	private function projekty() {
-		$projekty = '<div class="form-group">
-				<select class="form-control" id="projekty" name="projekty">';
-		$zapytanie = 'SELECT * FROM Projekty;';
-		$query = $this->db->query($zapytanie);
-		foreach ($query->result() as $row) {
-			$projekty.='<option value="' . $row->id_projektu . '">' . $row->id_projektu . '</option>';
-		}
-		$projekty.='</select></div>';
+		$projekty = '<select class="form-control" id="projekty" name="projekty">';
+		$projekty.='<option value="A">Administrator</option>';
+		$projekty.='<option value="U">Użytkownik</option>';
+		$projekty.='</select>';
 		return $projekty;
 	}
 	
 	private function add()
 	{
-		$this->wynik.= '<form class="form-horizontal" action="sprint_add_action" method="POST">
+		$this->wynik.= '<form class="form-horizontal" action="user_add_action" method="POST">
 						<fieldset>
 
 						<!-- Form Name -->
@@ -42,9 +38,9 @@ class AddU_m extends CI_Model {
 
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput0">Podaj hasło</label>  
+						  <label class="col-md-4 control-label" for="textinput1">Podaj hasło</label>  
 						  <div class="col-md-6">
-						  <input id="textinput0" name="textinput0" type="password" placeholder="Wpisz hasło" class="form-control input-md">
+						  <input id="textinput1" name="textinput1" type="password" placeholder="Wpisz hasło" class="form-control input-md">
 						    
 						  </div>
 						</div>
@@ -52,31 +48,27 @@ class AddU_m extends CI_Model {
 						
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput0">Podaj imię</label>  
+						  <label class="col-md-4 control-label" for="textinput2">Podaj imię</label>  
 						  <div class="col-md-6">
-						  <input id="textinput0" name="textinput0" type="text" placeholder="Wpisz imię" class="form-control input-md">
+						  <input id="textinput2" name="textinput2" type="text" placeholder="Wpisz imię" class="form-control input-md">
 						    
 						  </div>
 						</div>
 						
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput0">Podaj nazwisko</label>  
+						  <label class="col-md-4 control-label" for="textinput3">Podaj nazwisko</label>  
 						  <div class="col-md-6">
-						  <input id="textinput0" name="textinput0" type="text" placeholder="Wpisz nazwisko" class="form-control input-md">
+						  <input id="textinput3" name="textinput3" type="text" placeholder="Wpisz nazwisko" class="form-control input-md">
 						    
 						  </div>
 						</div>
 						
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput3">Wybierz range </label>  
-						  <div class="col-md-4">
-						  <!--<input id="textinput3" name="textinput3" type="text" placeholder="Wybierz range" class="form-control input-md data">-->
+						  <label class="col-md-4 control-label" for="projekty">Wybierz range </label>  
+						  <div class="col-md-6">
 						    ' . $this->projekty() . '
-						   
-						    <button id="button" name="button" class="btn btn-success">Dodaj range</button>
-						  
 						  </div>
 						</div>
 

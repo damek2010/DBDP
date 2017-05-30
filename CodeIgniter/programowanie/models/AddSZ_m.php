@@ -16,17 +16,24 @@ class AddSZ_m extends CI_Model {
 		$zadania = '';
 		$zapytanie = 'SELECT * FROM Zadania;';
 		$zapytanie2 = 'SELECT * FROM Sprinty_Zadania;';
+		$zapytanie3 = 'SELECT * FROM Sprinty;';
 		$query = $this->db->query($zapytanie);
 		$query2 = $this->db->query($zapytanie2);
+		$query3 = $this->db->query($zapytanie3);
 		$is = false;
+		$projID = '';
+		foreach ($query3->result() as $row3) {
+			if($row3->id_sprintu == $this->src) {
+				$projID = $row3->Projekty_id_projektu;
+			}
+		}
 		foreach ($query->result() as $row) {
 			foreach ($query2->result() as $row2) {
-				if($row->id_zadania == $row2->Zadania_ID && $row2->Sprinty_ID==$this->src)
-				{
+				if($row->id_zadania == $row2->Zadania_ID && $row2->Sprinty_ID == $this->src) {
 					$is = true;
 				}
 			}
-			if(!$is) {
+			if(!$is && $row->Projekty_id_projektu == $projID) {
 				$zadania.='	<div class="radio">
 							<label><input type="radio" name="optradio" value="' . $row->id_zadania . '">' . $row->id_zadania . '</label>
 						</div>';

@@ -3,57 +3,78 @@ class AddUU_m extends CI_Model {
 
 	private $wynik;
 
-        public function start()
+        public function start($src)
         {
 			$this->wynik = '';
-			$this->add();
+			$this->add($src);
 			return $this->wynik;
         }
 	
 	private function projekty() {
-		$projekty = '<div class="form-group">
-				<select class="form-control" id="projekty" name="projekty">';
+		$projekty = '<select class="form-control" id="projekty" name="projekty">';
 		$zapytanie = 'SELECT * FROM Projekty;';
 		$query = $this->db->query($zapytanie);
 		foreach ($query->result() as $row) {
 			$projekty.='<option value="' . $row->id_projektu . '">' . $row->id_projektu . '</option>';
 		}
-		$projekty.='</select></div>';
+		$projekty.='</select>';
 		return $projekty;
 	}
 	
-	private function add()
+	private function add($src)
 	{
-		$this->wynik.= '<form class="form-horizontal" action="sprint_add_action" method="POST">
+		$zapytanie = 'SELECT * FROM Uzytkownicy WHERE identyfikator="' . $src . '";';
+		$query = $this->db->query($zapytanie);
+		$imie = '';
+		$nazwisko = '';
+		foreach ($query->result() as $row) {
+			$imie = $row->imie;
+			$nazwisko = $row->nazwisko;
+		}
+		$this->wynik.= '<form class="form-horizontal" action="/ci/useru_add_action" method="POST">
 						<fieldset>
-
-						<!-- Form Name -->
-						<center><legend>Nowe uczestnictwo użytkownika:</legend></center>
-						<center><legend>Adam Stegenda</legend></center>
 						
-						<!-- Password input-->
+						<!-- Form Name -->
+						<center><h4>Nowe uczestnictwo użytkownika:</h4></center>
+						<center><legend>' . $imie . ' ' . $nazwisko . '</legend></center>
+						
+						<input id="textinput1" name="textinput1" type="hidden" class="form-control input-md" value="' . $src . '">
+						
+						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput4">Data przydzielenia</label>
+						  <label class="col-md-4 control-label" for="textinput0">ID Uczestnictwa</label>  
 						  <div class="col-md-4">
-						    <input id="textinput4" name="textinput4" type="text" placeholder="Wybierz datę przydzielenia" class="form-control input-md data">
+						  <input id="textinput0" name="textinput0" type="text" placeholder="ID Uczestnictwa" class="form-control input-md">
+						    
 						  </div>
 						</div>
 						
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput3">Wybierz projekt</label>  
+						  <label class="col-md-4 control-label" for="rola">Rola</label>  
 						  <div class="col-md-4">
-						  <!--<input id="textinput3" name="textinput3" type="text" placeholder="ID projektu" class="form-control input-md data">-->
+						    <div class="radio">
+							<label><input type="radio" id="k1" name="rola" value="gr1" checked>Grafik</label>
+						</div>
+						  <div class="radio">
+							<label><input type="radio" id="k2" name="rola" value="pr1">Programista</label>
+						</div>
+						  </div>
+						</div>
+						
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="projekty">Wybierz projekt</label>  
+						  <div class="col-md-4">
 						    ' . $this->projekty() . '
 						  </div>
 						</div>
 						
-
 						<!-- Button -->
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="button"></label>
 						  <div class="col-md-6">
-						    <button id="button" name="button" class="btn btn-success">Dodaj uczestnictwo</button>
+						    <button id="button" name="button" class="btn btn-success">Dodaj</button>
 						  </div>
 						</div>
 						</fieldset>
